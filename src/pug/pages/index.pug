@@ -1,0 +1,13 @@
+extends ../config/template
+append config
+  -pageTitle = 'Agave Azul '
+  -pageDescription = 'Tequila 100% puro de agave. San Juanito de Escobedo, Jalisco, Mexico'
+  -pageImage = 'img/pageImage.jpg'
+  -keywords = 'Tequila La Tarea,Tequila, Agave Azul, Tequila 100%, Puro de agave, Tequila en Jalisco, Destiladora de Tequila'
+  -urlPage = "/"
+block main
+  include ../sections/inicio
+  include ../sections/nosotros
+  include ../sections/destileria
+  include ../sections/tequilas
+  include ../sections/contacto

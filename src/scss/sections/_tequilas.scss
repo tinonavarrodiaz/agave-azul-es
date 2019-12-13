@@ -1,0 +1,122 @@
+.tequilas{
+  &__content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  &__container{
+    width: 100%;
+    height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+    position: absolute;
+    top:  50%;
+    left: 0;
+    transform: translateY(calc(-50% + 1em));
+    padding: 0 var(--margin);
+    .mobile & {
+      padding: 1em;
+    }
+  }
+  &__slider{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.overflowHiden{
+  width: calc(100% - 6em);
+  overflow: hidden;
+  height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+
+}
+
+.gallery{
+  width: 160%;
+  height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+  display: flex;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 1em;
+  transform: translateX(var(--tequilasSliderPos));
+  transition: transform .3s;
+  //display: ;
+  .mobile &{
+    width: 800%;
+  }
+  &__item{
+    flex: auto;
+    font-family: $font-tequilas;
+    width: 100%;
+    height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    p{
+      margin: 0 ;
+      text-align: center;
+      &:last-of-type, &:last-child{
+        margin-bottom: 1em;
+      }
+    }
+    img{
+      display: block;
+      width: auto;
+      height: 50%;
+      margin-bottom: 1em;
+      transform-origin: bottom;
+      transition: transform .3s;
+      transform: scale(1);
+    }
+    &:hover img{
+      transform: scale(1.1);
+    }
+    button{
+      background: transparent;
+      border: none;
+      box-shadow: 0 0 0 1px rgba(#000,.5);
+      line-height: 2.5;
+      padding: 0 1em;
+      cursor:pointer;
+    }
+  }
+}
+.btn-nav{
+  $size: 4em;
+  position: absolute;
+  width: $size;
+  height: $size;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity .3s;
+  &:focus, &:active{
+    outline: none;
+    box-shadow: none;
+  }
+  img{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &.previus{
+    left: 0;
+    opacity: 0;
+  }
+  &.next{
+    right: 0;
+    opacity: 0;
+  }
+  &.show{
+    opacity: 1;
+  }
+}
+
+.mobile .gallery__item:hover img{
+  transform: none;
+}

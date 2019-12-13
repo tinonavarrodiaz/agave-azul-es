@@ -1,0 +1,34 @@
+#layer-back{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  max-width: 0;
+  top: 0;
+  right: 0;
+  background-color: $body-bg;
+  z-index: var(--z-layer);
+  transition: max-width .5s;
+  &.inicio{
+    max-width: 0;
+  }
+  &.nosotros, &.destileria, &.contacto{
+    max-width: 50%;
+  }
+  &.tequilas{
+    max-width: 100%;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      width: 10px;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      background-color: #007bdf;
+    }
+  }
+}
+.mobile #layer-back:not(.inicio){
+  max-width: 100% !important;
+}

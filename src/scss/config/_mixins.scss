@@ -1,0 +1,3 @@
+@mixin img($img, $bsize, $bpos, $brep) {
+  background: unquote(img($img) $bpos / $bsize $brep);
+}

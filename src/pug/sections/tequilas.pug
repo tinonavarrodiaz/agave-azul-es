@@ -1,0 +1,16 @@
+section.section.tequilas#tequilas
+  .tequilas__content
+    .tequilas__container
+      .tequilas__slider#slider
+        .overflowHiden
+          .gallery.owl-carousel#tSlider
+             each tequila in products
+               .gallery__item(data-nameModal=tequila.nameModal data-nameModal1=tequila.nameModal1  data-name=tequila.name, data-title=tequila.title data-img=tequila.img, data-description=tequila.description, data-color=tequila.color, data-aroma=tequila.aroma, data-cuerpo=tequila.cuerpo data-sabor=tequila.sabor data-taninos=tequila.taninos, data-alc=tequila.alc, data-available=tequila.available, data-facebook=tequila.facebook, data-twitter=tequila.twitter, data-instagram=tequila.instagram, data-url=tequila.url, data-pdf=tequila.pdf)
+                 img(src=`img/bottles/new/${tequila.img}` alt=tequila.name)
+                 p= tequila.name
+                 p=tequila.title
+                 button(type="button").moreInfo Más Info
+        button.btn-nav.previus#prev
+          img(src="img/arrowPrev.svg" alt="")
+        button.btn-nav.next.show#next
+          img(src="img/arrowNext.svg" alt="")

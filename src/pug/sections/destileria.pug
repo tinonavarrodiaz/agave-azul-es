@@ -1,0 +1,42 @@
+-let images = ['Destileria1.jpg','Destileria2.jpg','Destileria3.jpg','Destileria4.jpg','Destileria5.jpg',]
+section.section.destileria#destileria
+  article.destileria__banner.section__banner.bannerSlider#bannerSlider
+    each img,i in images
+      if i===0
+        img(src=`img/${img}` alt=img).active
+      else
+        img(src=`img/${img}` alt=img)
+    //img(src="img/Landscape.jpg" alt="paisaje")
+  article.section__content
+    .section__text.nosotros__text
+      p 
+      p.section__title Proceso
+      .section__group
+        p.section__subtitle CULTIVO
+        p El proceso del tequila inicia con la plantación del agave (pequeñas plantas de agave, que se separan de una planta madre) que crecen y llegan a su plena madurez de 6 a 8 años. En este tiempo se realizan labores del cultivo, limpias de maleza y atender que no sea atacado por plagas o enfermedades.
+        p El agave no se riega y en temporada de lluvias son capaces de utilizar eficientemente el agua para lograr un crecimiento adecuado durante todo el año.
+
+      .section__group
+        p.section__subtitle Jima
+        p La planta de agave (tequilana weber variedad azul) tarda en madurar de 6 a 8 años para alcanzar su grado óptimo de azúcares y poder ser jimada, es decir se cortan las hojas y se extrae la piña o corazón de la planta.
+      .section__group
+        p.section__subtitle Cocimiento
+        p Las piñas o corazones del agave son cortados e ingresados en hornos (mamposterías – autoclaves) para su cocimiento mediante la inyección de vapor donde los carbohidratos se convierten en azúcares.
+        p Este proceso puede llevar de 50 a 72 horas en horno de mampostería y de 8 a 14 horas en autoclave.
+
+      .section__group
+        p.section__subtitle Molienda
+        p En esta etapa los agaves cocidos son pasados a través de los molinos, en donde se extrae el jugo y los azúcares del agave. Para facilitar dicha extracción y evitar pérdida de azúcares en la fibra, se inyecta agua presurizada directamente en la fibra.
+      .section__group
+        p.section__subtitle FERMENTACIÓN
+        p El jugo y sus azúcares son recolectados en tinas, en donde con la ayuda de levaduras y los nutrientes se convierten en alcohol gracias al proceso de fermentación, que tiene una duración aproximada de 48 a 72 horas.
+      .section__group
+        p.section__subtitle DESTILACIÓN
+        p El jugo fermentado se destila 2 veces utilizando alambiques de destilación de acero inoxidable.
+        p La primera destilación (destrozamiento) se obtiene un líquido llamado “Tequila ordinario”.
+        p La segunda destilación (rectificación) permite elevar el grado alcohólico y obtener un producto llamado Tequila.
+
+      .section__group
+        p.section__subtitle MADURACIÓN
+        p El Tequila obtenido es depositado en barricas de roble blanco para obtener diferentes grados de maduración, conforme al tiempo que el Tequila este en la barrica puede ser denominado Reposado, Añejo o Extra Añejo.
+    img(src="img/arrowDown.svg" alt="").arrowdown

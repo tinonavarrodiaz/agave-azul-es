@@ -1,0 +1,68 @@
+$images-path : '../img/';
+
+%lists-style {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+@function em($el, $parent:16px) {
+  @return ($el / $parent) * 1em;
+}
+
+@function rem($el) {
+  @return ($el / 16px) * 1rem;
+}
+
+@function img($image) {
+  @return url('../img/'+ $image);
+}
+
+@function texto3d($numero, $color) {
+  $text-shadow: 2px 2px $color;
+
+  @for $i from 1 through $numero {
+    $text-shadow: '#{$text-shadow},
+    #{$i}px #{$i}px #{$color}';
+
+  }
+
+  @return unquote($text-shadow);
+}
+
+@function box3d($numero, $color) {
+  $box-shadow: 2px 2px $color;
+
+  @for $i from 1 through $numero {
+    $box-shadow: '#{$box-shadow},
+    #{$i}px #{$i}px #{$color}';
+
+  }
+
+  @return unquote($box-shadow);
+}
+
+@function border($color, $ancho) {
+  @return $ancho solid $color;
+}
+
+@function shadow($unit, $color) {
+  @return $unit $unit $unit $color;
+}
+
+@function img($name) {
+  @return url(../img/#{$name});
+}
+
+@function colorAlpha($color, $opacity) {
+  @return rgba($color, $opacity)
+}
+
+@function blocknotes($color, $space, $number){
+  $box-shadow: 0 $space $color;
+  @for $i from 2 through $number{
+    $box-shadow: '#{$box-shadow},
+    0 #{$space * $i} #{$color}';
+  }
+  @return unquote($box-shadow);
+}

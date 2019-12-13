@@ -1,0 +1,45 @@
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  position: fixed;
+  background: #235E65;
+  margin : 0;
+  font-family : $font-family;
+  background: $body-bg;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4, p{
+  margin: 0;
+  margin-bottom: 1em;
+  &:last-child, &:last-of-type{
+    margin-bottom: 0;
+  }
+}
+section, article, figure, picture{
+  margin-bottom: 0;
+}
+
+

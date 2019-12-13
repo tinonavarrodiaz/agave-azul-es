@@ -1,0 +1,69 @@
+// Typography
+$font-family: 'Trueno', 'sans-serif';
+$font-family-light: 'Trueno-light', 'sans-serif';
+
+$font-heading: 'Myriad Pro',
+' sans-serif';
+
+$font-tequilas: 'Lucida Grande',
+'sans-serif';
+
+$font-tequilas-heading: 'Kohinoor Bangla',
+'sans-serif';
+
+$font-tequilas-text: 'Helvetica',
+'sans-serif';
+
+$bp : l;
+
+//variables
+
+$gutter-space: 100px;
+
+$body-bg: #F1F2F2;
+$color-slogan: #58595B;
+$color-text: #414042;
+$color-menu: #58595B;
+$color-menu-select:#235E65;
+$color-tequila-title: #3C3C3B;
+$color-tequila-text: #878787;
+$color-cr: #939598;
+:root{
+  --tequilasSliderPos : 0;
+  --color-header-light: #fff;
+  --color-header-dark: $color-menu;
+  --color-header: var(--color-header-light);
+
+  --gutter-space: 100px;
+  --header-height: calc(var(--gutter-space) * 1);
+  --footer-height: calc(var(--gutter-space) * 1);
+  --margin:  1em;
+
+  @include from($bp){
+    --header-height: calc(var(--gutter-space) * 1.1);
+    --footer-height: calc(var(--gutter-space) * .75);
+    --margin:  calc(var(--gutter-space) * .75);
+  }
+  @include from(1500px){
+    --margin:  var(--gutter-space);
+  }
+  @include to(l){
+    --footer-height: 5em;
+  }
+}
+:root{
+  //z-index
+  --z-back: -10;
+  --z-normal: 1;
+  --z-active: 50;
+  --z-tooltip: 90;
+  --z-banner: 75;
+  --z-banner-c: 90;
+  --z-layer: 200;
+  --z-fixed: 500;
+  --z-modal: 5000;
+  --section-normal : 100;
+  --section-active : 300;
+  --z-up : 15000;
+  --z-header: 1000;
+}

@@ -1,0 +1,247 @@
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $body-bg;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+  }
+
+  &-loading {
+    h1 {
+      display: none;
+    }
+    z-index: 20000;
+    & .modal__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__img {
+      max-width: 100px;
+    }
+
+    &__logo {
+      width: 75%;
+      max-width: 300px;
+      margin-top: -1.5em;
+      margin-bottom: 2em;
+    }
+  }
+}
+
+.tequila-modal {
+  color: rgba(#000, .75);
+  font-family: $font-tequilas-text;
+  height: 100vh;
+  width: calc(100% - 20px - 1em);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: $body-bg;
+  z-index: calc(var(--z-modal) + 1000);
+  overflow: hidden;
+  opacity: 0;
+  animation: showModal .5s forwards;
+  display: flex;
+  align-items: center;
+  &__content{
+    width: 100%;
+    transform: translateY(3%);
+    //height: calc(100vh - var(--header-height) - var(--footer-height));
+    height: auto;
+  }
+
+  @keyframes showModal {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .mobile & {
+    overflow-y: auto;
+    height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+    transform: translateX(-50%) translateY(calc(-50% + 1em));
+  }
+
+  .brand {
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &__left {
+      left: 0;
+    }
+
+    &__right {
+      right: 0;
+    }
+  }
+
+  &__product {
+    padding: 0 var(--margin);
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-gap: var(--margin);
+    align-items: center;
+    height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+
+    .mobile & {
+      display: block;
+    }
+  }
+
+  &__img {
+    height: calc(100vh - var(--header-height) - calc(var(--footer-height) * 1.6));
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .mobile & {
+      height: 30%;
+      margin-bottom: 1em;
+      justify-content: center;
+    }
+
+    img {
+      height: 80%;
+      width: auto;
+    }
+  }
+
+  &__data {
+    position: relative;
+    transform: scale(.75) translateX(-15%) translateY(10%);
+
+    .mobile & {
+      transform: none;
+    }
+
+    h2 {
+      font-family: $font-tequilas-heading;
+      text-transform: uppercase;
+      margin: 0;
+      font-size: calc(var(--margin) * .4);
+      line-height: 1;
+
+      &:last-child,
+      &:last-of-type {
+        margin-bottom: .5em;
+      }
+    }
+
+    p {
+      margin-bottom: .3em;
+    }
+
+    span {
+      font-weight: 700;
+    }
+
+    .mobile & {
+      height: 60%;
+      position: static;
+      padding: 0 2em;
+
+      h2 {
+        font-size: 1em;
+        text-align: center;
+      }
+
+      p {
+        font-size: .8em;
+      }
+    }
+  }
+
+  &__social-network {
+    $size: 1.3em;
+    margin: 1em 0;
+    @extend %lists-style;
+    display: flex;
+
+    li {
+      height: $size;
+      width: $size;
+      margin-right: $size/2;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    a {
+      height: $size;
+      width: $size;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    img {
+      height: $size;
+      width: auto;
+    }
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 0;
+  right: calc(var(--margin) * 2);
+  background: transparent;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+
+  @include from(1500px) {
+    top: calc(var(--margin) * -1);
+  }
+
+  .mobile & {
+    position: fixed;
+    top: 0;
+    right: 1em;
+  }
+}
+
+.arrowDownModal {
+  $size: 2em;
+  display: none;
+
+  .mobile & {
+    opacity: .75;
+    display: block;
+    position: absolute;
+    width: $size;
+    height: auto;
+    left: 50%;
+    bottom: var(--footer-height);
+    transform: translateY(.5em) translateX(-50%);
+    z-index: calc(var(--z-modal) + 1000);
+  }
+}
+
+.mobile .brand {
+  display: none;
+}
+.fichaTecnica{
+  a{
+    font-weight: 700;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

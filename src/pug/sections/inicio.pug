@@ -1,0 +1,10 @@
+-let slides = ['Landscape.jpg','AgaveAzul.jpg','AgaveAzul1.jpg','Inicio3.jpg','Inicio4.jpg']
+section.section.inicio.active.slider#inicio
+  each slide,i in slides
+    if i===0
+      .slide.active(data-index=i id=`slide${i+1}`)
+        img(src=`img/${slide}` alt="Slider Agave Azul")
+    else
+      .slide(data-index=i id=`slide${i+1}`)
+        img(src=`img/${slide}` alt="Slider Agave Azul")
+

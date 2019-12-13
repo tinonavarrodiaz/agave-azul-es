@@ -1,0 +1,28 @@
+section.section.nosotros.contacto#contacto
+  article.nosotros__banner.section__banner
+    img(src="img/Jima.jpg" alt="paisaje")
+  article.section__content
+    .contact
+      form.contact-form#contact-form(action="php/contact-form.php" method="POST")
+        .form-group
+          label(for="email") Email:
+          input.contact-input(type="email" id="email" name="email" placeholder="" pattern="^[a-z0-9]+(\\.[_a-z0-9]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,15})" required)
+        .form-group
+          label(for="name") Nombre:
+          input.contact-input(type="text" name="name" id="name" placeholder="" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\\s]+$" required)
+        .form-group.message
+          label(for="message") Mensaje:
+          textarea.contact-input.textarea(name="message" id="message" placeholder="" required)
+        footer.form_footer
+          button(type="submit").button.send Enviar
+          #messages.messages
+
+      article.contact__data
+        h2 Oficina
+        p Belen 1039 Alcalde Barranquitas, Guadalajara, Jalisco, México Tel.
+          span.phone.phoneJS#phone 01 800 087 0975
+        h2 Planta
+        p Cuauhtémoc 1000 Col. Vista Hermosa, San Juanito de Escobedo, Jal.46560 México
+        ul.social-network-contact
+          li: a(href="https://www.facebook.com/destiladoraagaveazul/" target="_blank"): img(src="img/facebook.svg")
+          li: a(href="https://www.instagram.com/destiladoraagaveazul/" target="_blank"): img(src="img/instagram.svg")

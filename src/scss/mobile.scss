@@ -1,0 +1,178 @@
+/*
+  This boilerplate is based in ITCSS and SMACSS
+*/
+
+// Variables de personalizacion de ed-grid
+
+//$breakpoints : (
+//  s  : 0,
+//  m  : 640px,
+//  lg : 1024px,
+//  xl : 1440px
+//);
+
+$prototype        : true;         // Activa los estilos de prototipado
+$dev              : false;        // Activa los estilos para debuggin
+$max-width        : 1200px;       // Ancho máximo de los contenedores ed-container y ed-grid
+$l-unit           : .5rem;        // Unidad básica de layout (para separaciones verticales, margin y padding)
+$gap              : $l-unit * 4;  // Separación entre columnas (2rem)
+$legacy           : false;        // Soporte para versiones antiguas
+$container        : ed-container; // Clase para el contenedor (core flexbox)
+$item             : ed-item;      // Clase para los items (core flexbox)
+$max-grid-columns : 12;           // Máximo número de columnas (core css grid)
+$fractions        : 3 6;          // Fracciones para crear columnas (core flexbox)
+
+//EDGrid
+@import "~ed-grid/ed-grid";
+
+// Config
+@import "config/functions";
+@import "config/variables";
+@import "config/mixins";
+
+
+
+// Hamburgers Menu
+// @import "~hamburgers/dist/hamburgers.min.css";
+
+// Base and elements (generic)
+@import "base/base";
+
+// LAYOUT
+// Escribe solo los estilos de layout (division en regiones del viewport)
+@import "layout/layout";
+
+// MODULOS (SMACSS) O COMPONENTES (ITCSS)
+// Son los elementos de UI de tu interfaz, como botones, tablas, menus, etc.
+// Crea los archivos adicionales que necesites (uno por componente)
+//@import "components/buttons";
+//@import "components/menus";
+//@import "components/forms";
+//@import "components/header";
+//@import "components/footer";
+//@import "components/slider";
+//@import "components/modal";
+//@import "components/aside";
+
+
+//@import "sections/main";
+//@import "sections/inicio";
+//@import "sections/nosotros";
+//@import "sections/destileria";
+//@import "sections/tequilas";
+//@import "sections/contacto";
+
+// Theme (colors and fonts)
+@import "theme/typography";
+
+// Utilities (hacks)
+// Todos los hacks que hayas necesitado para solucionar conflictos
+// o resolver situaciones extremas. Se espera poder mejorarlos luego.
+@import "hacks/hacks";
+
+
+body{
+  height: 100vh;
+  overflow-y: auto ;
+}
+.main-footer, .main-header{
+  z-index: var(--z-header);
+  position: fixed;
+}
+.main-header{
+  top: 0;
+  left: 0;
+  height: var(--header-height);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: .5em;
+  color: var(--color-header);;
+  &__logo{
+    width: 60vw;
+    height: auto;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__toggle{
+    $size: 2em;
+    height: auto;
+    width: $size;
+    svg{
+      fill: var(--color-header);
+    }
+  }
+}
+.slogan-mobile{
+  font-size: .7em;
+  text-align: center;
+  padding: 1em 1.5em 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: $font-family-light;
+}
+.main-nav{
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  background: $body-bg;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  max-height: 0;
+  transition: max-height .5s;
+  &.show{
+    max-height: 12em;
+  }
+}
+.main-menu{
+  @include edMenu(xl);
+  a{
+    text-transform: uppercase;
+  }
+}
+.main-footer{
+  height: var(--footer-height);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 1.3em;
+  text-align: center;
+  font-size: .8em;
+  color: var(--color-header);
+  &__text{
+    margin-bottom: .5em !important;
+  }
+  ul{
+    @extend %lists-style;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    li{
+      margin-right: 1.5em;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+main{
+  min-height: 100vh;
+  width: 100vw;
+  background: #4DC7A0;
+  position: relative;
+}
+
+.section{
+
+}
