@@ -1,50 +1,57 @@
-.main{
+.main {
   position: absolute;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   top: 0;
   left: 0;
-  background: img('Landscape.jpg') center / cover no-repeat ;
+  background: img("Landscape.jpg") center / cover no-repeat;
 }
-.section{
+.section {
   position: absolute;
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
-  opacity: 0;
   z-index: var(--z-normal);
-  &.active{
+  & .section__content,
+  .tequilas__content {
+    opacity: 0;
+  }
+  &.active {
     z-index: var(--section-active);
-    animation: active .3s .5s forwards;
-    @keyframes active {
-      to{
-        opacity: 1;
+    & .section__content,
+    .tequilas__content {
+      animation: active 0.3s 0.5s forwards;
+      @keyframes active {
+        to {
+          opacity: 1;
+        }
       }
     }
   }
-  &.nosotros, &.destileria{
+  &.nosotros,
+  &.destileria {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    .mobile &{
+    grid-template-columns: repeat(2, 1fr);
+    .mobile & {
       display: block;
     }
   }
-  &__banner{
+  &__banner {
     width: 100%;
     height: 100%;
     background: #000;
-    img{
+    overflow: hidden;
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: .8;
-
+      opacity: 0.8;
     }
   }
-  &__content{
+  &__content {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -52,42 +59,46 @@
     align-items: center;
     position: relative;
     padding-top: calc(var(--header-height) / 2);
-    .mobile &{
+    .mobile & {
       padding-left: 1em;
       padding-right: 1em;
     }
   }
-  &__text{
-    width: calc(100% - calc(var(--margin) * 2 ));
+  &__text {
+    width: calc(100% - calc(var(--margin) * 2));
     height: auto;
-    max-height: calc(100vh - (calc(var(--header-height) * .5) - var(--footer-height)));
-    font-size: .925vw;
+    max-height: calc(
+      100vh - (calc(var(--header-height) * 0.5) - var(--footer-height))
+    );
+    font-size: 0.925vw;
     overflow: auto;
     display: block !important;
-    @include from(1500px){
-      max-height: calc(100vh - (calc(var(--header-height) * 2) - var(--footer-height)));
+    @include from(1500px) {
+      max-height: calc(
+        100vh - (calc(var(--header-height) * 2) - var(--footer-height))
+      );
       font-size: 1em;
     }
-    .mobile &{
-      font-size: .9em;
+    .mobile & {
+      font-size: 0.9em;
       max-height: calc(100vh - 250px) !important;
       //max-height: calc(100vh - (calc(var(--header-height) * 1) - calc(var(--footer-height) - 10em)));
     }
-    p{
+    p {
       text-align: justify;
     }
   }
-  .mobile &__banner{
+  .mobile &__banner {
     display: none;
   }
 }
 
-.bannerSlider{
+.bannerSlider {
   position: relative;
   width: 100%;
   height: 100%;
   background: #000;
-  img{
+  img {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -96,33 +107,46 @@
     object-position: center;
     object-fit: cover;
     opacity: 0;
-    transition: opacity .5s;
-    &.active{
-      opacity: .7;
+    transition: opacity 0.5s;
+    &.active {
+      opacity: 0.7;
     }
   }
-
 }
 
-.arrowdown{
+.arrowdown {
   $size: 1.5em;
   position: absolute;
   height: $size;
-  width: $size*2;
+  width: $size * 2;
   left: 50%;
-  bottom:0;
+  bottom: 0;
   transform: translateX(-50%) translateY(-3em);
-  .mobile &{
+  .mobile & {
     transform: translateX(-50%) translateY(-70px);
   }
 }
-.destileria{
-  .section__text{
-    max-height: calc(100vh - (calc(var(--header-height) * 1.2) - var(--footer-height))) !important;
+.destileria {
+  .section__text {
+    max-height: calc(
+      100vh - (calc(var(--header-height) * 1.2) - var(--footer-height))
+    ) !important;
   }
 }
-.mobile .destileria .section__text, .mobile .nosotros .nosotros__text {
-  max-height: calc(100vh - 230px)!important;
+.mobile .destileria .section__text,
+.mobile .nosotros .nosotros__text {
+  max-height: calc(100vh - 230px) !important;
   transform: translateY(-2em);
   padding-bottom: 3em;
+}
+
+.active {
+  .section__banner img {
+    animation: scale 0.5s forwards;
+    @keyframes scale {
+      to {
+        transform: scale(1.03);
+      }
+    }
+  }
 }

@@ -6,11 +6,13 @@ import { modal } from "./modules/modal";
 import { sendForm, validateForm } from "./modules/form";
 
 ((d, w) => {
-  const host = location.hostname;
+  const host = location.port;
   const access = sessionStorage.getItem("access");
   console.log(location);
-  if (host !== "localhost") {
-    if (!access) location.href = "/";
+  if (host !== "3000") {
+    if (host !== "8080") {
+      if (!access) location.href = "/";
+    }
   }
 })(document, window);
 
@@ -76,3 +78,6 @@ window.addEventListener("load", e => {
     // cursorcolor:"#F11313",
   });
 });
+
+
+

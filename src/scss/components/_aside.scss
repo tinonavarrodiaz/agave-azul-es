@@ -1,4 +1,4 @@
-#layer-back{
+#layer-back {
   position: absolute;
   display: block;
   width: 100%;
@@ -8,17 +8,19 @@
   right: 0;
   background-color: $body-bg;
   z-index: var(--z-layer);
-  transition: max-width .5s;
-  &.inicio{
+  transition: max-width 0.5s;
+  &.inicio {
     max-width: 0;
   }
-  &.nosotros, &.destileria, &.contacto{
+  &.nosotros,
+  &.destileria,
+  &.contacto {
     max-width: 50%;
   }
-  &.tequilas{
+  &.tequilas {
     max-width: 100%;
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       display: block;
       position: absolute;
       width: 10px;
@@ -26,9 +28,12 @@
       left: 0;
       top: 0;
       background-color: #007bdf;
+      .mobile & {
+        background: transparent;
+      }
     }
   }
 }
-.mobile #layer-back:not(.inicio){
+.mobile #layer-back:not(.inicio) {
   max-width: 100% !important;
 }

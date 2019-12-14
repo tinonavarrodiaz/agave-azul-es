@@ -23,6 +23,9 @@
   display: grid;
   grid-template-columns: 70px 1fr;
   align-items: center;
+  &:nth-child(2) {
+    margin-bottom: 0.2em !important;
+  }
   label,
   input,
   textarea {
@@ -65,7 +68,7 @@
   border: none !important;
   position: relative;
   label {
-    //padding-top: .5em;
+    padding-top: 0.7em !important;
     align-self: normal;
   }
 }
@@ -177,8 +180,10 @@ select:-webkit-autofill:focus {
 }
 
 .message {
-  $line: 2.1em;
+  $line: 2.5em;
   --line: #{$line};
+  height: auto !important;
+  margin-bottom: 0 !important;
   &::before {
     $color: #000;
     content: "";
@@ -193,11 +198,40 @@ select:-webkit-autofill:focus {
     opacity: 0.5;
   }
   label {
-    padding-top: 0.5em;
+    padding-top: 1em !important;
   }
   .textarea {
     padding: 0 1em;
-    height: 8em;
+    height: $line * 4;
     line-height: calc(#{$line} - 0.2em);
   }
+}
+.mobile .message {
+  $line: 1.9em;
+  $color: #000;
+  --line: #{$line} !important;
+  transform: translateY(-0.8em);
+  &:before {
+    box-shadow: blocknotes($color, $line, 3);
+  }
+  z-index: 110;
+  label {
+    padding-top: 1.9em !important;
+  }
+  textarea {
+    transform: translateY(1em);
+    height: calc(var(--line) * 4.8);
+    line-height: calc(var(--line) * 1.2) !important;
+    font-size: 0.8em !important;
+    padding: 0 0.5em !important ;
+  }
+}
+.mobile .form-group {
+  position: relative;
+  z-index: 120;
+  margin-bottom: 0.6em;
+}
+.mobile .form_footer {
+  // transform: translateY(0.3em);
+  margin-top: -1.2em;
 }
