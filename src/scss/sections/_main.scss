@@ -121,7 +121,9 @@
   width: $size * 2;
   left: 50%;
   bottom: 0;
-  transform: translateX(-50%) translateY(-3em);
+  transform: translateX(-50%) translateY(-5em);
+  cursor: pointer;
+  z-index: calc(var(--z-up) + 1000);
   .mobile & {
     transform: translateX(-50%) translateY(-70px);
   }
@@ -129,7 +131,7 @@
 .destileria {
   .section__text {
     max-height: calc(
-      100vh - (calc(var(--header-height) * 1.2) - var(--footer-height))
+      100vh - (calc(var(--header-height) * 1.2) - var(--footer-height) * 2)
     ) !important;
   }
 }

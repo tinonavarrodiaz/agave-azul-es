@@ -4,22 +4,22 @@ import { imgSlider, slider, sliderTequilas } from "./modules/slider";
 import { menuAction } from "./modules/menu";
 import { modal } from "./modules/modal";
 import { sendForm, validateForm } from "./modules/form";
+// import $ from "jquery"
 
 ((d, w) => {
   const host = location.port;
-  const access = sessionStorage.getItem("access");
-  console.log(location);
-  if (host !== "3000") {
-    if (host !== "8080") {
-      if (!access) location.href = "/";
-    }
-  }
+  console.log(host);
+  const accessL = localStorage.getItem("access"); //false
+  const accessS = sessionStorage.getItem("access"); //true
+  if (!accessL && !accessS) location.href = "/";
+  // if (!host >= 3000) {
+  // }
 })(document, window);
 
 const body = document.body;
 
-const stylesheet = document.getElementById("stylesheet");
-console.log(stylesheet);
+// const stylesheet = document.getElementById("stylesheet");
+// console.log(stylesheet);
 
 isMobile.mobilecheck()
   ? body.classList.add("mobile")
@@ -79,5 +79,21 @@ window.addEventListener("load", e => {
   });
 });
 
-
-
+$(document).ready(function() {
+  console.log($(".arrowdown"));
+  $(".arrowdown").on("click", function() {
+    console.log(
+      $(this)
+        .prev()
+        .scrollTop()
+    );
+    $(this)
+      .prev()
+      .animate(
+        {
+          scrollTop: 290
+        },
+        300
+      );
+  });
+});

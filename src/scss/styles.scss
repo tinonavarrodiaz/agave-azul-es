@@ -73,3 +73,16 @@ $fractions        : 3 6;          // Fracciones para crear columnas (core flexbo
 body{
   
 }
+
+.mobile .inicio .slide:nth-child(4){
+  img{
+    object-position: 60% center ;
+  }
+}
+.mobile .slogan-mobile{
+  display: none;
+}
+.mobile .main-header{
+  transform-origin: center;
+  transform: translateY(-1em);
+}
